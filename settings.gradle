@@ -1,0 +1,40 @@
+pluginManagement {
+    repositories {
+        maven { url "https://jitpack.io" }
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+        maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots' }
+        maven { url 'https://repo1.maven.org/maven2/' }
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/gradle-plugin' }
+        maven { url 'https://developer.huawei.com/repo/' }
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven { url "https://jitpack.io" }
+        google()
+        mavenCentral()
+        maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots' }
+        maven { url 'https://repo1.maven.org/maven2/' }
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/gradle-plugin' }
+        maven { url 'https://developer.huawei.com/repo/' }
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+
+        flatDir{
+            dirs "${rootDir}/root_libs"
+        }
+    }
+}
+
+rootProject.name = "scanner"
+include ':lib_scanner'
+include ':demo'

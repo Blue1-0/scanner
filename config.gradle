@@ -1,0 +1,85 @@
+// dependencies.gradle
+
+ext {
+
+
+    app_versions = [
+            versionCode: 1001,
+            versionName: "1.0.0.1",
+            minSdk     : 24,
+            targetSdk  : 34,
+            compileSdk : 34,
+
+    ]
+
+
+    libs = [
+            appCompatLib            : "androidx.appcompat:appcompat:1.6.1",
+            coreLib                 : 'androidx.core:core-ktx:1.9.0',
+            materialLib             : 'com.google.android.material:material:1.9.0',
+            constraintlayoutLib     : 'androidx.constraintlayout:constraintlayout:2.1.4',
+            navigationFragmentLib   : "androidx.navigation:navigation-fragment-ktx:2.5.3",
+            navigationUiLib         : "androidx.navigation:navigation-ui-ktx:2.5.3",
+            lifecycleViewmodelLib   : "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1",
+            lifecycleRuntimeLib     : 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1',
+            lifecycleLivedataLib    : 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1',
+
+
+//            arouterApi              : "com.alibaba:arouter-api:1.5.0",
+//            arouterCompiler         : "com.alibaba:arouter-compiler:1.2.2",
+            arouterApi              : "com.alibaba:arouter-api:1.5.2",
+            arouterCompiler         : "com.alibaba:arouter-compiler:1.5.2",
+
+            utilcodexLib            : 'com.blankj:utilcodex:1.31.1',
+            eventbusLib             : 'org.greenrobot:eventbus:3.3.1',
+            refreshlayoutkernelLib  : 'io.github.scwang90:refresh-layout-kernel:2.1.0',
+            refreshheaderclassicsLib: 'io.github.scwang90:refresh-header-classics:2.1.0',
+            retrofit2Lib            : 'com.squareup.retrofit2:retrofit:2.9.0',
+            retrofit2GsonLib        : 'com.squareup.retrofit2:converter-gson:2.9.0',
+            retrofit2converterLib   : 'com.squareup.retrofit2:converter-scalars:2.9.0',
+
+
+            ToasterLib1             : 'com.github.getActivity:Toaster:13.0',
+            EasyHttpLib             : 'com.github.getActivity:EasyHttp:11.2',
+            gsonFactory             : 'com.github.getActivity:GsonFactory:8.0',
+            XXPermissionsLib        : 'com.github.getActivity:XXPermissions:18.5',
+            ShapeViewLib            : 'com.github.getActivity:ShapeView:9.2',
+            ShapeDrawableLib        : 'com.github.getActivity:ShapeDrawable:3.2',
+
+            okhttp3Lib              : 'com.squareup.okhttp3:okhttp:4.2.0',
+            loggerLib               : "com.orhanobut:logger:2.2.0",
+
+            DialogXLib              : "com.kongzue.dialogx:DialogX:0.0.49",
+            glideLib                : 'com.github.bumptech.glide:glide:4.11.0',
+            glideTransLib           : 'jp.wasabeef:glide-transformations:4.3.0',
+
+            BaseRecyclerAdapter     : "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.2",
+            BRVLib                  : 'com.github.liangjingkanji:BRV:1.4.2',
+            StateLayoutLib          : 'com.github.liangjingkanji:StateLayout:1.4.2',
+            autoSize                : 'com.github.JessYanCoding:AndroidAutoSize:v1.2.1',
+
+
+            // core
+//            DownloaderLib           : 'com.github.Justson:Downloader:v5.0.4-androidx',
+            okdownload              : 'com.liulishuo.okdownload:okdownload:1.0.7',
+            okdownloadOkHttp        : 'com.liulishuo.okdownload:okhttp:1.0.7',
+            okdownloadSqlite        : 'com.liulishuo.okdownload:sqlite:1.0.7',
+            okdownloadFiledownloader: 'com.liulishuo.okdownload:filedownloader:1.0.7',
+            okdownloadKtx           : 'com.liulishuo.okdownload:ktx:1.0.7',
+
+            andserverLib            : 'com.yanzhenjie.andserver:api:2.1.12',
+            //这个必须在app模块的依赖文件中，否则本地服务没用
+//    kapt 'com.yanzhenjie.andserver:processor:2.1.12'
+            FastBleLib              : 'com.github.Jasonchenlijian:FastBle:2.4.0',
+            popWindow               : 'io.github.razerdp:BasePopup:3.2.1',//打算弃用
+            hmsscanplus             : 'com.huawei.hms:scanplus:2.10.0.301',
+
+            coilLib                 : "io.coil-kt:coil:2.6.0",
+            coilComposeLib          : "io.coil-kt:coil-compose:2.6.0",
+
+            refreshUi               : 'com.github.jenly1314.UltraSwipeRefresh:refresh:1.3.0',
+            refreshIndicator        : 'com.github.jenly1314.UltraSwipeRefresh:refresh-indicator-classic:1.3.0'
+
+
+    ]
+}
