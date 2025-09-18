@@ -7,6 +7,7 @@ import android.util.Log;
 import com.blankj.utilcode.util.ObjectUtils;
 import com.blue.lib_scanner.device.AlpsDeviceHelper;
 import com.blue.lib_scanner.device.DJDeviceHelper;
+import com.blue.lib_scanner.device.HandHeldTerminalDeviceHelper;
 import com.blue.lib_scanner.device.SMDeviceHelper;
 //import com.blue.lib_scanner.device.TC21PhoneScannerHelper;
 import com.blue.lib_scanner.device.UrovoDeviceHelper;
@@ -43,6 +44,9 @@ public class ScannerManager implements IScannerManager {
 //                break;
             case ALPS:
                 deviceHelper = AlpsDeviceHelper.getInstance();
+                break;
+            case Hand_held_Terminal:
+                deviceHelper = HandHeldTerminalDeviceHelper.getInstance();
                 break;
             case OTHER:
                 deviceHelper = new PhoneScannerHelper();
@@ -123,10 +127,11 @@ public class ScannerManager implements IScannerManager {
         NEWLAND(new String[]{"NLS-MT95L", "NLS-MT90"}, "Newland", 5),
 
         ALPS(new String[]{"full_k62v1_64_bsp"}, "alps", 6),
+        Hand_held_Terminal(new String[]{"Hand-held_Terminal"}, "Hand-held_Terminal", 7),
         /**
          * 不确定的设备类型
          */
-        OTHER(new String[]{"SD55"}, null, 7);
+        OTHER(new String[]{"SD55"}, null, 8);
 
         private final String[] product;
         private final String brand;
