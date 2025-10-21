@@ -8,27 +8,49 @@ import android.device.ScanManager;
 import android.os.Build;
 import android.util.Log;
 
+import com.blankj.utilcode.util.ObjectUtils;
 import com.blankj.utilcode.util.Utils;
 import com.blue.lib_scanner.inner.IScannerDeviceHelper;
 import com.blue.lib_scanner.ScannerManager;
 
-
+/**
+ * NLS-MT90/NLS-MT95L
+ */
 public class XDLDeviceHelper implements IScannerDeviceHelper {
 
     private static final String TAG = "XDLDeviceHelper";
     private static final String PRODUCT_NAME_MT95L = "NLS-MT95L";
     private static final String PRODUCT_NAME_MT90 = "NLS-MT90";
-    private static final String ACTION_NAME_DEFAULT = ScanManager.ACTION_DECODE;
+    private static final String ACTION_NAME_DEFAULT = ScanManager.ACTION_DECODE;//NLS-MT90
+    private static final String ACTION_NAME_DEFAULT_NLS = "nlscan.action.SCANNER RESULT";//NLS-MT95
     private static final String ACTION_KEY_DEFAULT = ScanManager.BARCODE_STRING_TAG;
+    private static final String ACTION_KEY_DEFAULT_NLS_1 = "SCAN_BARCODE1";
+    private static final String ACTION_KEY_DEFAULT_NLS_2 = "SCAN_BARCODE2";
     private OnScanListener scanListener;
     private final BroadcastReceiver scanBroadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent != null) {
                 String finalScanData = intent.getStringExtra(ACTION_KEY_DEFAULT);
+                try {
+                    String nls1 = intent.getStringExtra(ACTION_KEY_DEFAULT_NLS_1);
+                    String nls2 = intent.getStringExtra(ACTION_KEY_DEFAULT_NLS_2);
+                    if (ObjectUtils.isEmpty(finalScanData)) {
+                        finalScanData = nls1;
+                    }
+                    if (ObjectUtils.isEmpty(finalScanData) && ObjectUtils.isNotEmpty(nls2)) {
+                        finalScanData = nls2;
+                    }
+
+                } catch (Throwable e) {
+                    e.printStackTrace();
+                }
+
+
                 if (scanListener != null) {
                     scanListener.onReceivedScanCode(finalScanData);
                 }
+
                 Log.d(TAG, "scanBroadcastReceiver===> finalScanData: " + finalScanData);
             }
         }
@@ -59,6 +81,7 @@ public class XDLDeviceHelper implements IScannerDeviceHelper {
         if (!isXDL()) return;
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(ACTION_NAME_DEFAULT);
+        intentFilter.addAction(ACTION_NAME_DEFAULT_NLS);
         Utils.getApp().registerReceiver(scanBroadcastReceiver, intentFilter);
         Log.d(TAG, "registerScanReceiver===>");
     }
