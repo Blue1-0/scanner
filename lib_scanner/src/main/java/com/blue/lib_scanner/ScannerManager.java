@@ -124,7 +124,7 @@ public class ScannerManager implements IScannerManager {
 
         ZEBRA(new String[]{"TC21", "TC70", "TC72", "TC70X"}, "Zebra", 4),
 
-        NEWLAND(new String[]{"NLS-MT95L","NLS-MT95", "NLS-MT90"}, "Newland", 5),
+        NEWLAND(new String[]{"NLS-MT95L","NLS-MT95", "NLS-MT90"}, "Newland", 5),//nls-mt95
 
         ALPS(new String[]{"full_k62v1_64_bsp"}, "alps", 6),
         Hand_held_Terminal(new String[]{"Hand-held_Terminal"}, "Hand-held_Terminal", 7),
