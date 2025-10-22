@@ -10,6 +10,7 @@ import com.blue.lib_scanner.device.DJDeviceHelper;
 import com.blue.lib_scanner.device.HandHeldTerminalDeviceHelper;
 import com.blue.lib_scanner.device.SMDeviceHelper;
 //import com.blue.lib_scanner.device.TC21PhoneScannerHelper;
+import com.blue.lib_scanner.device.SmartPhoneDeviceHelper;
 import com.blue.lib_scanner.device.UrovoDeviceHelper;
 import com.blue.lib_scanner.device.XDLDeviceHelper;
 import com.blue.lib_scanner.inner.IScannerDeviceHelper;
@@ -47,6 +48,9 @@ public class ScannerManager implements IScannerManager {
                 break;
             case Hand_held_Terminal:
                 deviceHelper = HandHeldTerminalDeviceHelper.getInstance();
+                break;
+            case SMARTPHONE:
+                deviceHelper = SmartPhoneDeviceHelper.getInstance();
                 break;
             case OTHER:
                 deviceHelper = new PhoneScannerHelper();
@@ -128,6 +132,7 @@ public class ScannerManager implements IScannerManager {
 
         ALPS(new String[]{"full_k62v1_64_bsp"}, "alps", 6),
         Hand_held_Terminal(new String[]{"Hand-held_Terminal"}, "Hand-held_Terminal", 7),
+        SMARTPHONE(new String[]{"V9100"}, "smartphone", 8),
         /**
          * 不确定的设备类型
          */
