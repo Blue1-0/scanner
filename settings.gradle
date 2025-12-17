@@ -42,7 +42,7 @@ include ':lib_phone_scanner'
 include ':pictureselector'
 
 // 设置模块路径
-project(':app').projectDir = new File(rootDir, 'app')
-project(':lib_scanner').projectDir = new File(rootDir, 'lib_scanner')
-project(':lib_phone_scanner').projectDir = new File(rootDir, 'lib_phone_scanner')
-project(':pictureselector').projectDir = new File(rootDir, 'pictureselector')
+//project(':app').projectDir = new File(rootDir, 'app')
+//project(':lib_scanner').projectDir = new File(rootDir, 'lib_scanner')
+//project(':lib_phone_scanner').projectDir = new File(rootDir, 'lib_phone_scanner')
+//project(':pictureselector').projectDir = new File(rootDir, 'pictureselector')
