@@ -1,4 +1,4 @@
-package com.blue.lib_scanner
+package com.blue.lib_phone_scanner.hms_util
 
 import com.blankj.utilcode.util.ActivityUtils
 import com.huawei.hms.hmsscankit.ScanUtil
@@ -15,7 +15,7 @@ object PhoneScanUtil {
             ActivityUtils.getTopActivity(),
             requestCode,
             HmsScanAnalyzerOptions.Creator()
-                .setHmsScanTypes(HmsScan.QRCODE_SCAN_TYPE, HmsScan.DATAMATRIX_SCAN_TYPE).create()
+                .setHmsScanTypes(HmsScan.ALL_SCAN_TYPE).create()
         )
     }
 }

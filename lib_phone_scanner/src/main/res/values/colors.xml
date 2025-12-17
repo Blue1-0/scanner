@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="bg_color_1">#E5F1FF</color>
+    <color name="colorPrimary">#3B8CFF</color>
+    <color name="colorPrimaryDark">#3B8CFF</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="dialog_bg">#80000000</color>
+
+    <color name="title_bg">#0685EF</color>
+    <color name="martini">#999999</color>
+
+    <color name="text_black">#282828</color>
+    <color name="text_gray">#9A9A9A</color>
+    <color name="text_hint_gray">#CECECE</color>
+    <color name="text_blue">#0071CE</color>
+    <color name="text_blue_press">#0065b9</color>
+    <color name="text_yellow">#EA6400</color>
+    <color name="text_red">#DE1C24</color>
+    <color name="line_gray">#E0E0E0</color>
+    <color name="alto">#D9D9D9</color>
+    <color name="dodger_blue">#3476FE</color>
+    <color name="picton_blue">#34B5FE</color>
+    <color name="dodger_blue_alpha_20">#333476FE</color>
+    <color name="dodger_blue_alpha_10">#1A3476FE</color>
+    <color name="dusty_gray">#999798</color>
+
+    <color name="scan_white">#F8F8F8</color>
+    <color name="bg_color">#F3F3F3</color>
+    <color name="text_grey_1">#000000</color>
+
+
+    <color name="del_bg_color_gray">#E0E0E0</color>
+    <color name="del_bg_color_rad">#DE1C24</color>
+    <color name="text_line_color">#ffD8D8D8</color>
+
+    <color name="refreshing_color">#0a0</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="transparent80">#80000000</color>
+    <color name="purple">#63327E</color>
+    <color name="green">#5FB446</color>
+    <color name="blue">#0071CE</color>
+    <color name="red">#DE1C24</color>
+    <color name="yellow">#FFC220</color>
+    <color name="cyan">#3EC5E6</color>
+    <color name="gray">#CECECE</color>
+
+    <drawable name="search_normal_color">#0071CE</drawable>
+    <drawable name="search_press_color">#800071CE</drawable>
+
+    <color name="CD0021B">#D0021B</color>
+    <color name="CE8808D">#E8808D</color>
+    <color name="C4D000000">#4D000000</color>
+    <color name="CFFE5F3FF">#FFE5F3FF</color>
+    <color name="CFFF8F8F8">#FFF8F8F8</color>
+    <color name="CFF282828">#FF282828</color>
+    <color name="C0071CE">#0071CE</color>
+    <color name="C9B9B9B">#9B9B9B</color>
+    <color name="C1A2C2C2C">#1A2C2C2C</color>
+    <color name="C282828">#282828</color>
+    <color name="CF8F8F8">#F8F8F8</color>
+    <color name="C9A9A9A">#9A9A9A</color>
+    <color name="color_FFFFFF">#FFFFFF</color>
+    <color name="C5D5D5D">#5D5D5D</color>
+    <color name="CEEEEEE">#EEEEEE</color>
+    <color name="CE6E6E6">#E6E6E6</color>
+    <color name="CE0E0E0">#E0E0E0</color>
+    <color name="C595959">#595959</color>
+
+    <color name="C222427">#222427</color>
+    <color name="C0165B8">#0165B8</color>
+    <color name="CDCE0E4">#DCE0E4</color>
+    <color name="C0065B9">#0065B9</color>
+    <color name="CD6ECFF">#D6ECFF</color>
+    <color name="C5FB446">#5FB446</color>
+    <color name="CC9E6FF">#C9E6FF</color>
+    <color name="CDE1C24">#DE1C24</color>
+    <color name="ffCDE1C24">#11DE1C24</color>
+    <color name="C828282">#828282</color>
+    <color name="CEA6400">#EA6400</color>
+    <color name="CE7E7E7">#E7E7E7</color>
+    <color name="CBFBFBF">#BFBFBF</color>
+    <color name="CCECECE">#CECECE</color>
+    <color name="CBABABA">#BABABA</color>
+    <color name="CCBE7FF">#CBE7FF</color>
+    <color name="CFFEBDE">#FFEBDE</color>
+    <color name="CEC8131">#EC8131</color>
+    <color name="CF2AF00">#F2AF00</color>
+    <color name="CEA7224">#EA7224</color>
+    <color name="C431651">#431651</color>
+    <color name="C660071CE">#660071CE</color>
+    <color name="C33431651">#33431651</color>
+    <color name="C33EA7224">#33EA7224</color>
+    <color name="C33F2AF00">#33F2AF00</color>
+    <color name="C330071CE">#330071CE</color>
+    <color name="CFF5EB446">#FF5EB446</color>
+    <color name="C335EB446">#335EB446</color>
+    <color name="CFFD0021B">#FFD0021B</color>
+    <color name="C33D0021B">#33D0021B</color>
+    <color name="CFFDE1C24">#1ADE1C24</color>
+    <color name="CFFEC8131">#1AEC8131</color>
+    <color name="C1A9A9A9A">#1A9A9A9A</color>
+
+    <color name="color_D8D8D8">#D8D8D8</color>
+    <color name="color_333333">#333333</color>
+    <color name="color_37384E">#37384E</color>
+    <color name="color_0270BA">#0270BA</color>
+    <color name="color_4174CB">#4174CB</color>
+    <color name="color_1717FF">#1717FF</color>
+    <color name="color_989898">#989898</color>
+    <color name="color_ABABAB">#ABABAB</color>
+    <color name="color_0000FF">#0000FF</color>
+    <color name="color_BCBCBC">#BCBCBC</color>
+    <color name="color_FF3A49">#FF3A49</color>
+    <color name="color_D1FBEA">#D1FBEA</color>
+    <color name="color_E7EEFD">#E7EEFD</color>
+
+
+    <color name="mine_shaft">#444444</color>
+    <color name="gallery">#EEEEEE</color>
+    <color name="buttonBg">#016838</color>
+    <color name="app_color_f6">#f6f6f6</color>
+    <color name="silver">#C5C5C5</color>
+    <color name="tran_white">#66FFFFFF</color>
+    <color name="dorado">#5A5A5A</color>
+    <color name="altoB">#DBDBDB</color>
+    <color name="zumthor">#EBF5FF</color>
+    <color name="anakiwa1">#9FCEFF</color>
+    <color name="ghost">#C8C9CC</color>
+    <color name="apple">#67C23A</color>
+    <color name="peppermint">#F0F9EB</color>
+    <color name="mercury">#E4E4E4</color>
+    <color name="malachite">#20B759</color>
+
+    <color name="green_vogue">#06244A</color>
+    <color name="outer_space">#2B3336</color>
+    <color name="hit_gray">#AAADAF</color>
+    <color name="rolling_stone">#7F8486</color>
+    <color name="catskill_white">#F0F5F9</color>
+    <color name="sunset_orange_alpha_10">#1AFF4C4C</color>
+    <color name="sunset_orange">#FF4C4C</color>
+    <color name="blue_ribbon_alpha_10">#1A1062FE</color>
+    <color name="apple1">#3FBE34</color>
+    <color name="apple_alpha_10">#1A3FBE34</color>
+    <color name="athens_gray">#EBEFF3</color>
+    <color name="wild_sand">#F5F5F5</color>
+    <color name="oslo_gray">#808487</color>
+    <color name="black_tran_10">#66000000</color>
+    <color name="textSecond">#737373</color>
+
+
+</resources>

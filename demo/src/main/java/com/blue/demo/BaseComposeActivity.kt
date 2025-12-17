@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import com.blankj.utilcode.util.ThreadUtils
-import com.blue.lib_scanner.PhoneScanUtil
+import com.blue.lib_phone_scanner.hms_util.PhoneScanUtil
 import com.blue.lib_scanner.ScannerManager
 import com.huawei.hms.hmsscankit.ScanUtil
 import com.huawei.hms.ml.scan.HmsScan

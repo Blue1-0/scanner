@@ -1,4 +1,4 @@
-package com.blue.lib_scanner;
+package com.blue.lib_phone_scanner.hms_util;
 
 import android.graphics.Bitmap;
 import android.graphics.Color;

@@ -38,3 +38,5 @@ dependencyResolutionManagement {
 rootProject.name = "scanner"
 include ':lib_scanner'
 include ':demo'
+include ':lib_phone_scanner'
+include ':pictureselector'

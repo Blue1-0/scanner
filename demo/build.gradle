@@ -65,6 +65,7 @@ dependencies {
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
 
     implementation project(path: ':lib_scanner')
+    implementation project(path: ':lib_phone_scanner')
     implementation 'com.blankj:utilcodex:1.31.1'
     implementation 'com.github.getActivity:XXPermissions:18.5'
 }

@@ -50,6 +50,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     //适配zebra类型的PDA 设备型号TC21
 //    implementation 'com.symbol:emdk:7.6.10' // 'com.symbol:emdk:7.6+'  或者 ‘com.symbol:emdk:7.6.10’
-    api 'com.huawei.hms:scanplus:2.10.0.301'
+
     implementation 'com.blankj:utilcodex:1.31.1'
 }
