@@ -39,21 +39,21 @@ android {
     }
 }
 // 配置发布
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
-
-                // 设置Maven坐标
-                groupId = 'com.github.blue'  // 替换为你的GitHub用户名
-                artifactId = 'lib-phone-scanner'
-                version = '1.0.6'
-
-            }
-        }
-    }
-}
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            release(MavenPublication) {
+//                from components.release
+//
+//                // 设置Maven坐标
+//                groupId = 'com.github.blue'  // 替换为你的GitHub用户名
+//                artifactId = 'lib-phone-scanner'
+//                version = '1.0.6'
+//
+//            }
+//        }
+//    }
+//}
 
 dependencies {
 
