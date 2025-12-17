@@ -2,6 +2,7 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-parcelize'
+    id 'maven-publish'
 }
 //apply from: "${rootProject.projectDir}/config.gradle"
 android {
@@ -32,6 +33,20 @@ android {
     }
     kotlinOptions {
         jvmTarget = '11'
+    }
+}
+// 配置发布
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                // 设置Maven坐标
+                groupId = 'com.github.blue'  // 替换为你的GitHub用户名
+                artifactId = 'lib-scanner'
+                version = '1.0.6'
+            }
+        }
     }
 }
 

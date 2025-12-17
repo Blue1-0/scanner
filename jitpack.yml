@@ -1,0 +1,41 @@
+# JitPack构建配置文件
+jvm:
+  version: 11  # 使用Java 11
+
+# 构建顺序
+install:
+  - echo "开始构建..."
+  - ./gradlew :lib_scanner:assembleRelease
+  - ./gradlew :lib_phone_scanner:assembleRelease
+  - ./gradlew :pictureselector:assembleRelease  # 构建依赖模块
+
+# 发布任务
+publish:
+  - echo "发布库..."
+  - ./gradlew :lib_scanner:publishReleasePublicationToMavenLocal
+  - ./gradlew :lib_phone_scanner:publishReleasePublicationToMavenLocal
+
+# 跳过构建app模块
+skip:
+  - app
+
+# 可选的，为每个子模块配置
+subprojects:
+  lib_scanner:
+    enabled: true
+    artifactId: lib-scanner
+    maven:
+      groupId: com.github.blue
+      artifactId: lib-scanner
+      version: 1.0.6
+
+  lib_phone_scanner:
+    enabled: true
+    artifactId: lib-phone-scanner
+    maven:
+      groupId: com.github.blue
+      artifactId: lib-phone-scanner
+      version: 1.0.6
+
+  pictureselector:
+    enabled: false  # 不发布pictureselector
