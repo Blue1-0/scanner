@@ -1,6 +1,6 @@
 # JitPack构建配置文件
 jdk:
-  - openjdk17
+  - openjdk11
 #jvm:
 #  version: 11  # 使用Java 11
 
