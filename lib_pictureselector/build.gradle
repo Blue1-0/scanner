@@ -6,7 +6,7 @@ plugins {
 }
 apply from: "${rootProject.projectDir}/config.gradle"
 android {
-    namespace 'com.wzg.pictureselector'
+    namespace 'com.blue.pictureselector'
     compileSdk app_versions.compileSdk
 
     defaultConfig {

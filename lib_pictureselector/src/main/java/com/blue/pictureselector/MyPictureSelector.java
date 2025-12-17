@@ -1,4 +1,4 @@
-package com.wzg.pictureselector;
+package com.blue.pictureselector;
 
 import android.app.Activity;
 import android.content.Context;
@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment;
 import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.GsonUtils;
 import com.blankj.utilcode.util.ToastUtils;
-import com.luck.lib.camerax.SimpleCameraX;
 import com.luck.picture.lib.basic.PictureSelector;
 import com.luck.picture.lib.config.SelectMimeType;
 import com.luck.picture.lib.config.SelectModeConfig;

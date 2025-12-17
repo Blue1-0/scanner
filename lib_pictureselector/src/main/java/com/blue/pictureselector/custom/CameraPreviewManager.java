@@ -1,4 +1,4 @@
-package com.wzg.pictureselector.custom;
+package com.blue.pictureselector.custom;
 
 import android.content.Context;
 import android.graphics.SurfaceTexture;
@@ -8,8 +8,6 @@ import android.util.SparseIntArray;
 import android.view.Surface;
 import android.view.TextureView;
 
-
-import androidx.camera.view.PreviewView;
 
 import java.io.IOException;
 import java.util.List;

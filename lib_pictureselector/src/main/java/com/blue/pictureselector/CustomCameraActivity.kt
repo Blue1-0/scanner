@@ -1,4 +1,4 @@
-package com.wzg.pictureselector
+package com.blue.pictureselector
 
 import android.app.Activity
 import android.content.Intent
@@ -17,10 +17,10 @@ import com.blankj.utilcode.util.BarUtils
 import com.blankj.utilcode.util.ImageUtils
 import com.blankj.utilcode.util.ThreadUtils
 import com.blankj.utilcode.util.ToastUtils
-import com.wzg.pictureselector.custom.AutoTexturePreviewView
-import com.wzg.pictureselector.custom.CameraPreviewManager
-import com.wzg.pictureselector.custom.CustomConfigCenter
-import com.wzg.pictureselector.custom.CustomRotation
+import com.blue.pictureselector.custom.AutoTexturePreviewView
+import com.blue.pictureselector.custom.CameraPreviewManager
+import com.blue.pictureselector.custom.CustomConfigCenter
+import com.blue.pictureselector.custom.CustomRotation
 
 class CustomCameraActivity : AppCompatActivity() {
 

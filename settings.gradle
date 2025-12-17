@@ -39,7 +39,7 @@ rootProject.name = "scanner"
 include ':lib_scanner'
 include ':demo'
 include ':lib_phone_scanner'
-include ':pictureselector'
+include ':lib_pictureselector'
 
 // 设置模块路径
 //project(':app').projectDir = new File(rootDir, 'app')

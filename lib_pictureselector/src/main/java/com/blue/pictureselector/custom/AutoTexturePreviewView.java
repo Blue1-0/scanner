@@ -1,5 +1,5 @@
 
-package com.wzg.pictureselector.custom;
+package com.blue.pictureselector.custom;
 
 import android.content.Context;
 import android.graphics.Matrix;

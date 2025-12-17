@@ -1,4 +1,4 @@
-package com.wzg.pictureselector;
+package com.blue.pictureselector;
 
 import android.content.Context;
 

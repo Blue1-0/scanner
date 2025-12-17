@@ -1,15 +1,11 @@
-package com.wzg.pictureselector;
+package com.blue.pictureselector;
 
-import android.Manifest;
 import android.content.Intent;
 import android.provider.MediaStore;
-import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
 import com.luck.picture.lib.interfaces.OnRecordAudioInterceptListener;
-import com.luck.picture.lib.permissions.PermissionChecker;
-import com.luck.picture.lib.permissions.PermissionResultCallback;
 import com.luck.picture.lib.utils.ToastUtils;
 
 public class MeOnRecordAudioInterceptListener implements OnRecordAudioInterceptListener {

@@ -1,4 +1,4 @@
-package com.wzg.pictureselector;
+package com.blue.pictureselector;
 
 import android.content.Context;
 import android.net.Uri;
@@ -11,10 +11,8 @@ import com.luck.picture.lib.utils.DateUtils;
 import java.io.File;
 import java.util.ArrayList;
 
-import top.zibin.luban.CompressionPredicate;
 import top.zibin.luban.Luban;
 import top.zibin.luban.OnNewCompressListener;
-import top.zibin.luban.OnRenameListener;
 
 public class ImageFileCompressEngine implements CompressFileEngine {
 

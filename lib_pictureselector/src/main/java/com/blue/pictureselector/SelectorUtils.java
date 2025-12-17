@@ -1,4 +1,4 @@
-package com.wzg.pictureselector;
+package com.blue.pictureselector;
 
 import com.blankj.utilcode.util.Utils;
 import com.yalantis.ucrop.UCrop;

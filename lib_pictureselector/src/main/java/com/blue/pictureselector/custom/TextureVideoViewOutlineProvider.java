@@ -1,4 +1,4 @@
-package com.wzg.pictureselector.custom;
+package com.blue.pictureselector.custom;
 
 import android.graphics.Outline;
 import android.view.View;

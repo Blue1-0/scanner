@@ -64,7 +64,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     implementation libs.BaseRecyclerAdapter
-    implementation project(path: ':pictureselector')
+    implementation project(path: ':lib_pictureselector')
 
     implementation libs.coilLib
     implementation libs.coilComposeLib

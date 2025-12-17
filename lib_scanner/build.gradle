@@ -4,9 +4,9 @@ plugins {
     id 'kotlin-parcelize'
     id 'maven-publish'
 }
-//apply from: "${rootProject.projectDir}/config.gradle"
+apply from: "${rootProject.projectDir}/config.gradle"
 android {
-    namespace 'com.zxl.lib_scanner'
+    namespace 'com.blue.lib_scanner'
     compileSdk 34
 
     defaultConfig {

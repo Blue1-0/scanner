@@ -1,4 +1,4 @@
-package com.wzg.pictureselector;
+package com.blue.pictureselector;
 
 import android.annotation.SuppressLint;
 import android.content.ContentUris;
@@ -11,7 +11,7 @@ import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 
 /**
- * Author：  wzg
+ * Author：  blue
  * Date：  2021/4/29
  * desc：获取本地的绝对路径
  */

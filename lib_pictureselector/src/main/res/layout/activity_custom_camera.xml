@@ -46,7 +46,7 @@
     </RelativeLayout>
 
     <!-- 相机预览视图 -->
-    <com.wzg.pictureselector.custom.AutoTexturePreviewView
+    <com.blue.pictureselector.custom.AutoTexturePreviewView
         android:id="@+id/preview_view"
         android:layout_width="0dp"
         android:layout_height="0dp"

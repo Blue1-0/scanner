@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.view.Window
 import com.blankj.utilcode.util.ActivityUtils
 import com.blue.lib_phone_scanner.dialog.ImageSelectionDialog
-import com.wzg.pictureselector.MyPictureSelector
+import com.blue.pictureselector.MyPictureSelector
 
 @SuppressLint("StaticFieldLeak")
 var imageSelectionDialog: ImageSelectionDialog? = null
