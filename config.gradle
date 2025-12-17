@@ -2,6 +2,11 @@
 
 ext {
 
+    scanner_versions = [
+            lib_phone_scanner: "1.1.3",
+            lib_scanner      : "1.1.3",
+            pictureselector  : "1.1.3",
+    ]
 
     app_versions = [
             versionCode: 1001,

@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import com.blankj.utilcode.util.ThreadUtils
-import com.blue.lib_phone_scanner.hms_util.PhoneScanUtil
+import com.blue.lib_phone_scanner.hms_util.HmsPhoneScanUtil
 import com.blue.lib_scanner.ScannerManager
 import com.huawei.hms.hmsscankit.ScanUtil
 import com.huawei.hms.ml.scan.HmsScan
@@ -35,7 +35,7 @@ open class BaseComposeActivity : ComPermissionActivity() {
     }
 
     protected fun startCameraScan() {
-        PhoneScanUtil.startCameraScan(PhoneScanUtil.CAMERA_REQUEST_CODE)
+        HmsPhoneScanUtil.startCameraScan(HmsPhoneScanUtil.CAMERA_REQUEST_CODE)
     }
 
     open fun receiveDeviceCommonScanResult(result: String, usb: Boolean) {
@@ -69,7 +69,7 @@ open class BaseComposeActivity : ComPermissionActivity() {
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PhoneScanUtil.CAMERA_REQUEST_CODE && resultCode == RESULT_OK) {
+        if (requestCode == HmsPhoneScanUtil.CAMERA_REQUEST_CODE && resultCode == RESULT_OK) {
             val parcelableExtra = data?.getParcelableExtra<HmsScan>(ScanUtil.RESULT)
             parcelableExtra?.let {
                 receiveScanResult(parcelableExtra.originalValue)

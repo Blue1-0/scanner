@@ -8,7 +8,7 @@ import com.huawei.hms.ml.scan.HmsScanAnalyzerOptions
 /**
  * 手机扫描
  */
-object PhoneScanUtil {
+object HmsPhoneScanUtil {
     const val CAMERA_REQUEST_CODE = 1998
     fun startCameraScan(requestCode: Int) {
         ScanUtil.startScan(

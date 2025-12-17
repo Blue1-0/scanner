@@ -47,7 +47,7 @@ afterEvaluate {
                 // 设置Maven坐标
                 groupId = 'com.github.Blue1-0'  // 替换为你的GitHub用户名
                 artifactId = 'lib-phone-scanner'
-                version = '1.1.2'
+                version = scanner_versions.lib_phone_scanner
 
             }
         }
