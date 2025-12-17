@@ -7,6 +7,7 @@ publish:
   - echo "发布库..."
   - ./gradlew :lib_scanner:publishToMavenLocal
   - ./gradlew :lib_phone_scanner:publishToMavenLocal
+  - ./gradlew :pictureselector:publishToMavenLocal
 
 # 跳过构建app模块
 #skip:

@@ -2,6 +2,7 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-parcelize'
+    id 'maven-publish'
 }
 apply from: "${rootProject.projectDir}/config.gradle"
 android {
@@ -31,7 +32,20 @@ android {
         jvmTarget = '11'
     }
 }
-
+// 配置发布
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                // 设置Maven坐标
+                groupId = 'com.github.Blue1-0'  // 替换为你的GitHub用户名
+                artifactId = 'pictureselector'
+                version = '1.1.2'
+            }
+        }
+    }
+}
 dependencies {
 
     implementation libs.appCompatLib
