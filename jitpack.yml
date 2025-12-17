@@ -27,17 +27,17 @@ subprojects:
     enabled: true
     artifactId: lib-scanner
     maven:
-      groupId: com.github.blue
+      groupId: com.github.Blue1-0
       artifactId: lib-scanner
-      version: 1.0.6
+      version: 1.0.8
 
   lib_phone_scanner:
     enabled: true
     artifactId: lib-phone-scanner
     maven:
-      groupId: com.github.blue
+      groupId: com.github.Blue1-0
       artifactId: lib-phone-scanner
-      version: 1.0.6
+      version: 1.0.8
 
   pictureselector:
     enabled: false  # 不发布pictureselector
