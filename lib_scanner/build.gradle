@@ -36,19 +36,19 @@ android {
     }
 }
 // 配置发布
-//afterEvaluate {
-//    publishing {
-//        publications {
-//            release(MavenPublication) {
-//                from components.release
-//                // 设置Maven坐标
-//                groupId = 'com.github.blue'  // 替换为你的GitHub用户名
-//                artifactId = 'lib-scanner'
-//                version = '1.0.6'
-//            }
-//        }
-//    }
-//}
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                // 设置Maven坐标
+                groupId = 'com.github.Blue1-0'  // 替换为你的GitHub用户名
+                artifactId = 'lib-scanner'
+                version = '1.0.9'
+            }
+        }
+    }
+}
 
 dependencies {
 
