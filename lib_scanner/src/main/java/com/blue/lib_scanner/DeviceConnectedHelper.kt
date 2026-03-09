@@ -48,15 +48,15 @@ class DeviceConnectedHelper(private val context: Context) {
                 }
 
                 BluetoothDevice.ACTION_ACL_CONNECTED -> {
-                    onDeviceConnectedListener?.onDeivceStateChanged(device?.name, true)
+                    onDeviceConnectedListener?.onDeviceStateChanged(device?.name, true)
                 }
 
                 BluetoothDevice.ACTION_ACL_DISCONNECTED -> {
-                    onDeviceConnectedListener?.onDeivceStateChanged(device?.name, false)
+                    onDeviceConnectedListener?.onDeviceStateChanged(device?.name, false)
                 }
 
                 BluetoothDevice.ACTION_FOUND -> {
-                    onDeviceFoundListener?.onDeivceFound(device)
+                    onDeviceFoundListener?.onDeviceFound(device)
                 }
             }
         }

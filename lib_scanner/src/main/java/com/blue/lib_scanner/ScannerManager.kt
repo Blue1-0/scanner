@@ -34,6 +34,9 @@ object ScannerManager : IScannerManager {
                 ScannerType.ALPS -> AlpsDeviceHelper
                 ScannerType.Hand_held_Terminal -> HandHeldTerminalDeviceHelper
                 ScannerType.SMARTPHONE -> SmartPhoneDeviceHelper
+                //            case ZEBRA:
+//                deviceHelper = new TC21PhoneScannerHelper();
+//                break;
                 ScannerType.OTHER -> PhoneScannerHelper
                 else -> null
             }
