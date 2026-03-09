@@ -1,63 +1,55 @@
-package com.blue.lib_scanner;
+package com.blue.lib_scanner
 
-import android.app.Activity;
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothManager;
-import android.content.Context;
-import android.content.Intent;
+import android.annotation.SuppressLint
+import android.app.Activity
+import android.bluetooth.BluetoothAdapter
+import android.bluetooth.BluetoothManager
+import android.content.Context
+import android.content.Intent
+import java.lang.reflect.InvocationTargetException
 
-import androidx.annotation.RequiresPermission;
+class BlueToothHelper(activity: Activity) {
+    private val context: Context
+    var bluetoothAdapter: BluetoothAdapter?
 
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-
-public class BlueToothHelper {
-
-    private static final int REQUEST_ENABLE_BT = 1010;
-
-    private Context context;
-    public BluetoothAdapter bluetoothAdapter;
-
-
-//    @RequiresPermission("")
-    public BlueToothHelper(Activity activity) {
-        this.context = activity.getApplicationContext();
-        final BluetoothManager bluetoothManager =
-                (BluetoothManager) context.getSystemService(Context.BLUETOOTH_SERVICE);
-        this.bluetoothAdapter = bluetoothManager.getAdapter();
-
-        if (bluetoothAdapter == null || !bluetoothAdapter.isEnabled()) {
-            Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            activity.startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+    //    @RequiresPermission("")
+    init {
+        context = activity.applicationContext
+        val bluetoothManager =
+            context.getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
+        bluetoothAdapter = bluetoothManager.adapter
+        if (bluetoothAdapter == null || !bluetoothAdapter!!.isEnabled) {
+            val enableBtIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
+            activity.startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT)
         }
     }
 
-    public String getBTMAC() {
-        try {
-            Field field = BluetoothAdapter.class.getDeclaredField("mService");
-            field.setAccessible(true);
-            Object bluetoothManagerService = field.get(bluetoothAdapter);
-            if (bluetoothManagerService == null) {
-                return null;
-            }
-            Method method = bluetoothManagerService.getClass().getMethod("getAddress");
-            if (method != null) {
-                Object obj = method.invoke(bluetoothManagerService);
-                if (obj != null) {
-                    return obj.toString();
+    val bTMAC: String?
+        get() {
+            try {
+                val field = BluetoothAdapter::class.java.getDeclaredField("mService")
+                field.isAccessible = true
+                val bluetoothManagerService = field[bluetoothAdapter] ?: return null
+                val method = bluetoothManagerService.javaClass.getMethod("getAddress")
+                if (method != null) {
+                    val obj = method.invoke(bluetoothManagerService)
+                    if (obj != null) {
+                        return obj.toString()
+                    }
                 }
+            } catch (e: NoSuchFieldException) {
+                e.printStackTrace()
+            } catch (e: IllegalAccessException) {
+                e.printStackTrace()
+            } catch (e: NoSuchMethodException) {
+                e.printStackTrace()
+            } catch (e: InvocationTargetException) {
+                e.printStackTrace()
             }
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
+            return null
         }
-        return null;
-    }
 
+    companion object {
+        private const val REQUEST_ENABLE_BT = 1010
+    }
 }

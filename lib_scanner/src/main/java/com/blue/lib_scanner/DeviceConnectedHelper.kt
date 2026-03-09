@@ -1,111 +1,97 @@
-package com.blue.lib_scanner;
+package com.blue.lib_scanner
 
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.widget.Toast;
+import android.bluetooth.BluetoothAdapter
+import android.bluetooth.BluetoothDevice
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
+import android.widget.Toast
+import com.blue.lib_scanner.inner.OnDeviceConnectedListener
+import com.blue.lib_scanner.inner.OnDeviceFoundListener
 
-import com.blue.lib_scanner.inner.OnDeviceConnectedListener;
-import com.blue.lib_scanner.inner.OnDeviceFoundListener;
+class DeviceConnectedHelper(private val context: Context) {
 
+    private var onDeviceConnectedListener: OnDeviceConnectedListener? = null
+    private var onDeviceFoundListener: OnDeviceFoundListener? = null
 
-public class DeviceConnectedHelper {
-    private Context context;
-    private OnDeviceConnectedListener onDeviceConnectedListener;
-    private OnDeviceFoundListener onDeviceFoundListener;
-    private BroadcastReceiver scanReceiver = new BroadcastReceiver() {
+    private val scanReceiver: BroadcastReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            val device = intent?.getParcelableExtra<BluetoothDevice>(BluetoothDevice.EXTRA_DEVICE)
+            if (null == intent?.action) return
+            when (intent.action) {
+                BluetoothAdapter.ACTION_STATE_CHANGED -> {
+                    val blueState = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, 0)
+                    when (blueState) {
+                        BluetoothAdapter.STATE_ON -> showToast(context, "STATE_ON")
+                        BluetoothAdapter.STATE_OFF -> showToast(context, "STATE_OFF")
+                        BluetoothAdapter.STATE_TURNING_ON -> showToast(context, "STATE_TURNING_ON")
+                        BluetoothAdapter.STATE_TURNING_OFF -> showToast(
+                            context,
+                            "STATE_TURNING_OFF"
+                        )
 
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-            switch (intent.getAction()) {
-                case BluetoothAdapter.ACTION_STATE_CHANGED:
-                    int blueState = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, 0);
-                    switch (blueState) {
-                        case BluetoothAdapter.STATE_ON:
-                            showToast(context, "STATE_ON");
-                            break;
-                        case BluetoothAdapter.STATE_OFF:
-                            showToast(context, "STATE_OFF");
-                            break;
-                        case BluetoothAdapter.STATE_TURNING_ON:
-                            showToast(context, "STATE_TURNING_ON");
-                            break;
-                        case BluetoothAdapter.STATE_TURNING_OFF:
-                            showToast(context, "STATE_TURNING_OFF");
-                            break;
-                        case BluetoothAdapter.STATE_CONNECTING:
-                            showToast(context, "STATE_CONNECTING");
-                            break;
-                        case BluetoothAdapter.STATE_DISCONNECTING:
-                            showToast(context, "STATE_DISCONNECTING");
-                            break;
-                        case BluetoothAdapter.STATE_CONNECTED:
-                            showToast(context, "STATE_CONNECTED");
-                            break;
-                        case BluetoothAdapter.STATE_DISCONNECTED:
-                            showToast(context, "STATE_DISCONNECTED");
-                            break;
-                        default:
-                            showToast(context, "其他状态：" + blueState);
+                        BluetoothAdapter.STATE_CONNECTING -> showToast(context, "STATE_CONNECTING")
+                        BluetoothAdapter.STATE_DISCONNECTING -> showToast(
+                            context,
+                            "STATE_DISCONNECTING"
+                        )
+
+                        BluetoothAdapter.STATE_CONNECTED -> showToast(context, "STATE_CONNECTED")
+                        BluetoothAdapter.STATE_DISCONNECTED -> showToast(
+                            context,
+                            "STATE_DISCONNECTED"
+                        )
+
+                        else -> showToast(context, "其他状态：$blueState")
                     }
-                    break;
-                case BluetoothDevice.ACTION_ACL_CONNECTED:
-                    if (onDeviceConnectedListener != null) {
-                        onDeviceConnectedListener.onDeivceStateChanged(device.getName(), true);
-                    }
-                    break;
-                case BluetoothDevice.ACTION_ACL_DISCONNECTED:
-                    if (onDeviceConnectedListener != null) {
-                        onDeviceConnectedListener.onDeivceStateChanged(device.getName(), false);
-                    }
-                    break;
-                case BluetoothDevice.ACTION_FOUND:
-                    if (onDeviceFoundListener != null) {
-                        onDeviceFoundListener.onDeivceFound(device);
-                    }
-                    break;
+                }
+
+                BluetoothDevice.ACTION_ACL_CONNECTED -> {
+                    onDeviceConnectedListener?.onDeivceStateChanged(device?.name, true)
+                }
+
+                BluetoothDevice.ACTION_ACL_DISCONNECTED -> {
+                    onDeviceConnectedListener?.onDeivceStateChanged(device?.name, false)
+                }
+
+                BluetoothDevice.ACTION_FOUND -> {
+                    onDeviceFoundListener?.onDeivceFound(device)
+                }
             }
         }
 
-        private void showToast(Context context, String msg) {
-            Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
+        private fun showToast(context: Context?, msg: String) {
+            context?.let { Toast.makeText(context, msg, Toast.LENGTH_SHORT).show() }
         }
-    };
-
-    public DeviceConnectedHelper(Context context) {
-        this.context = context;
     }
 
-    public void register() {
-        registerScanReceiver();
+    fun register() {
+        registerScanReceiver()
     }
 
-    private void registerScanReceiver() {
-        IntentFilter filter = new IntentFilter();
-//        filter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED);
-        filter.addAction(BluetoothDevice.ACTION_ACL_CONNECTED);
-        filter.addAction(BluetoothDevice.ACTION_ACL_DISCONNECTED);
-        filter.addAction(BluetoothDevice.ACTION_FOUND);
-        context.registerReceiver(scanReceiver, filter);
+    private fun registerScanReceiver() {
+        val filter = IntentFilter()
+        //        filter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED);
+        filter.addAction(BluetoothDevice.ACTION_ACL_CONNECTED)
+        filter.addAction(BluetoothDevice.ACTION_ACL_DISCONNECTED)
+        filter.addAction(BluetoothDevice.ACTION_FOUND)
+        context.registerReceiver(scanReceiver, filter)
     }
 
-    public void unregister() {
-        unregisterScanReceiver();
+    fun unregister() {
+        unregisterScanReceiver()
     }
 
-    private void unregisterScanReceiver() {
-        context.unregisterReceiver(scanReceiver);
+    private fun unregisterScanReceiver() {
+        context.unregisterReceiver(scanReceiver)
     }
 
-    public void setOnDeviceConnectedListener(OnDeviceConnectedListener onDeviceConnectedListener) {
-        this.onDeviceConnectedListener = onDeviceConnectedListener;
+    fun setOnDeviceConnectedListener(onDeviceConnectedListener: OnDeviceConnectedListener?) {
+        this.onDeviceConnectedListener = onDeviceConnectedListener
     }
 
-    public void setOnDeviceFoundListener(OnDeviceFoundListener onDeviceFoundListener) {
-        this.onDeviceFoundListener = onDeviceFoundListener;
+    fun setOnDeviceFoundListener(onDeviceFoundListener: OnDeviceFoundListener?) {
+        this.onDeviceFoundListener = onDeviceFoundListener
     }
 }

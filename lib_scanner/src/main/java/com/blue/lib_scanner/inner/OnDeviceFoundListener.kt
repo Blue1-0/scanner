@@ -1,9 +1,7 @@
-package com.blue.lib_scanner.inner;
+package com.blue.lib_scanner.inner
 
-import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothDevice
 
-public interface OnDeviceFoundListener {
-
-    void onDeivceFound(BluetoothDevice device);
-
+interface OnDeviceFoundListener {
+    fun onDeivceFound(device: BluetoothDevice?)
 }

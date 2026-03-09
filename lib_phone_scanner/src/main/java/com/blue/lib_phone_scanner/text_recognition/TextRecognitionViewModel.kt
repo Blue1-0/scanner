@@ -32,7 +32,7 @@ class TextRecognitionViewModel : ViewModel() {
     fun selectImg(callback: (String) -> Unit) {
         imagePicker(1) { imgList ->
             if (ObjectUtils.isNotEmpty(imgList)) {
-                _state.update { it.copy(imgPath = imgList[0]) }
+                _state.update { it.copy(imgPath = imgList!![0]) }
                 val imgPath = _state.value.imgPath
                 if (ObjectUtils.isNotEmpty(imgPath)) {
                     detectInImage(callback)

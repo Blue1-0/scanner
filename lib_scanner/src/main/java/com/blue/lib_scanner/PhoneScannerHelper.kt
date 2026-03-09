@@ -1,82 +1,81 @@
-package com.blue.lib_scanner;
+package com.blue.lib_scanner
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.device.ScanManager;
-import android.device.scanner.configuration.PropertyID;
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
+import android.device.ScanManager
+import android.device.scanner.configuration.PropertyID
+import com.blankj.utilcode.util.Utils
+import com.blue.lib_scanner.inner.IScannerDeviceHelper
+import com.blue.lib_scanner.inner.IScannerDeviceHelper.OnScanListener
 
-import com.blankj.utilcode.util.Utils;
-import com.blue.lib_scanner.inner.IScannerDeviceHelper;
+/**
+ * @author Blue
+ * @desc default device
+ */
+object PhoneScannerHelper : IScannerDeviceHelper {
+    private const val SCAN_ACTION = ScanManager.ACTION_DECODE //default action
 
-public class PhoneScannerHelper implements IScannerDeviceHelper {
-
-    private final static String SCAN_ACTION = ScanManager.ACTION_DECODE;//default action
-
-    private ScanManager mScanManager;
-    private OnScanListener onScanListener;
-
-    private BroadcastReceiver mScanReceiver = new BroadcastReceiver() {
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            byte[] barcode = intent.getByteArrayExtra(ScanManager.DECODE_DATA_TAG);
-            int barcodelen = intent.getIntExtra(ScanManager.BARCODE_LENGTH_TAG, 0);
-            byte temp = intent.getByteExtra(ScanManager.BARCODE_TYPE_TAG, (byte) 0);
-            String message = new String(barcode, 0, barcodelen);
-            OnReceiveData(message);
+    private val mScanManager: ScanManager?
+    private var onScanListener: OnScanListener? = null
+    private val mScanReceiver: BroadcastReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context, intent: Intent) {
+            val barcode = intent.getByteArrayExtra(ScanManager.DECODE_DATA_TAG)
+            val barcodelen = intent.getIntExtra(ScanManager.BARCODE_LENGTH_TAG, 0)
+            val temp = intent.getByteExtra(ScanManager.BARCODE_TYPE_TAG, 0.toByte())
+            val message = String(barcode!!, 0, barcodelen)
+            OnReceiveData(message)
         }
-
-    };
-
-    public PhoneScannerHelper() {
-        mScanManager = new ScanManager();
-        mScanManager.openScanner();
-        mScanManager.switchOutputMode(0);
     }
 
-    public void register() {
-        registerScanReceiver();
+    init {
+        mScanManager = ScanManager()
+        mScanManager.openScanner()
+        mScanManager.switchOutputMode(0)
     }
 
-    @Override
-    public void registerScanReceiver() {
+    fun register() {
+        registerScanReceiver()
+    }
+
+    override fun registerScanReceiver() {
         if (mScanManager != null) {
-            IntentFilter filter = new IntentFilter();
-            int[] idbuf = new int[]{PropertyID.WEDGE_INTENT_ACTION_NAME, PropertyID.WEDGE_INTENT_DATA_STRING_TAG};
-            String[] value_buf = mScanManager.getParameterString(idbuf);
-            if (value_buf != null && value_buf[0] != null && !value_buf[0].equals("")) {
-                filter.addAction(value_buf[0]);
+            val filter = IntentFilter()
+            val idbuf = intArrayOf(
+                PropertyID.WEDGE_INTENT_ACTION_NAME,
+                PropertyID.WEDGE_INTENT_DATA_STRING_TAG
+            )
+            val value_buf = mScanManager.getParameterString(idbuf)
+            if (value_buf != null && value_buf[0] != null && value_buf[0] != "") {
+                filter.addAction(value_buf[0])
             } else {
-                filter.addAction(SCAN_ACTION);
+                filter.addAction(SCAN_ACTION)
             }
-            Utils.getApp().registerReceiver(mScanReceiver, filter);
+            Utils.getApp().registerReceiver(mScanReceiver, filter)
         }
     }
 
-    public void unregister() {
-        unregisterScanReceiver();
+    fun unregister() {
+        unregisterScanReceiver()
     }
 
-    @Override
-    public void unregisterScanReceiver() {
-        if (mScanManager != null) {
-            mScanManager.stopDecode();
-        }
-        Utils.getApp().unregisterReceiver(mScanReceiver);
-    }
-
-    @Override
-    public void registerScanListener(OnScanListener scanListener) {
-        this.onScanListener = scanListener;
+    override fun unregisterScanReceiver() {
+        mScanManager?.stopDecode()
+        Utils.getApp().unregisterReceiver(mScanReceiver)
     }
 
 
-    private void OnReceiveData(String message) {
+
+    override fun registerScanListener(scanListener: OnScanListener?) {
+        onScanListener = scanListener
+    }
+
+    private fun OnReceiveData(message: String) {
         if (onScanListener != null) {
-            onScanListener.onReceivedScanCode(message);
+            onScanListener!!.onReceivedScanCode(message)
         }
     }
+
 
 }

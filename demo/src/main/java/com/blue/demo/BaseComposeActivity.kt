@@ -4,9 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
+import com.blankj.utilcode.util.ObjectUtils
 import com.blankj.utilcode.util.ThreadUtils
 import com.blue.lib_phone_scanner.hms_util.HmsPhoneScanUtil
 import com.blue.lib_scanner.ScannerManager
+import com.blue.lib_scanner.inner.IScannerDeviceHelper
 import com.huawei.hms.hmsscankit.ScanUtil
 import com.huawei.hms.ml.scan.HmsScan
 
@@ -23,9 +25,12 @@ open class BaseComposeActivity : ComPermissionActivity() {
         super.onResume()
         registerScanner()
         if (this::scannerManager.isInitialized) {
-            scannerManager.registerScanListener {
-                receiveScanResult(it)
-            }
+            scannerManager.registerScanListener(object :IScannerDeviceHelper.OnScanListener{
+                override fun onReceivedScanCode(message: String?) {
+                    receiveScanResult(message)
+                }
+            })
+
         }
     }
 
@@ -43,14 +48,14 @@ open class BaseComposeActivity : ComPermissionActivity() {
 
     }
 
-    open fun receiveScanResult(qrcode: String) {
-        if (qrcode.isEmpty()) return
-        this.receiveDeviceCommonScanResult(qrcode, false)
+    open fun receiveScanResult(qrcode: String?) {
+        if (ObjectUtils.isEmpty(qrcode)) return
+        this.receiveDeviceCommonScanResult(qrcode!!, false)
     }
 
     private fun initScanner() {
         if (!this::scannerManager.isInitialized) {
-            scannerManager = ScannerManager()
+            scannerManager = ScannerManager
         }
 
     }

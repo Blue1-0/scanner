@@ -19,7 +19,7 @@ fun dismissPictureDialog() {
 /**
  * 选择图片
  */
-fun imagePicker(max: Int = 6, pictureResult: (List<String>) -> Unit) {
+fun imagePicker(max: Int = 6, pictureResult: (List<String>?) -> Unit) {
     val topActivity = ActivityUtils.getTopActivity()
     if (imageSelectionDialog == null) {
         imageSelectionDialog =

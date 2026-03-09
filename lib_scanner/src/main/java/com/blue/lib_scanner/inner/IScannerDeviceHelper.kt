@@ -1,24 +1,13 @@
-package com.blue.lib_scanner.inner;
+package com.blue.lib_scanner.inner
 
 /**
  * 可服用扩展
  */
-public interface IScannerDeviceHelper {
-
-
-    void registerScanReceiver();
-
-
-    void unregisterScanReceiver();
-
-
-    void registerScanListener(OnScanListener scanListener);
-
-
+interface IScannerDeviceHelper {
+    fun registerScanReceiver()
+    fun unregisterScanReceiver()
+    fun registerScanListener(scanListener: OnScanListener?)
     interface OnScanListener {
-
-        void onReceivedScanCode(String message);
+        fun onReceivedScanCode(message: String?)
     }
-
-
 }

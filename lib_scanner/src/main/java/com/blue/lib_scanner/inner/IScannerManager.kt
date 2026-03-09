@@ -1,12 +1,9 @@
-package com.blue.lib_scanner.inner;
+package com.blue.lib_scanner.inner
 
-public interface IScannerManager {
+import com.blue.lib_scanner.inner.IScannerDeviceHelper.OnScanListener
 
-
-    void registerScanner();
-
-    void unregisterScanner();
-
-    void registerScanListener(IScannerDeviceHelper.OnScanListener scanListener);
-
+interface IScannerManager {
+    fun registerScanner()
+    fun unregisterScanner()
+    fun registerScanListener(scanListener: OnScanListener?)
 }

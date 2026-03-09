@@ -3,9 +3,9 @@
 ext {
 
     scanner_versions = [
-            lib_phone_scanner: "1.1.4",
-            lib_scanner      : "1.1.4",
-            pictureselector  : "1.1.4",
+            lib_phone_scanner: "1.1.5",
+            lib_scanner      : "1.1.5",
+            pictureselector  : "1.1.5",
     ]
 
     app_versions = [
