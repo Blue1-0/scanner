@@ -4,8 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/shape_bg_white_top_round"
+    android:id="@+id/rootView"
     >
-    <LinearLayout style="@style/ItemLineLayout">
+    <LinearLayout
+        style="@style/ItemLineLayout">
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"

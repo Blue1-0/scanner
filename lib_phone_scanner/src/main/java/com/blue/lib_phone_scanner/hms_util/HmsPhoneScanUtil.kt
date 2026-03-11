@@ -1,5 +1,6 @@
 package com.blue.lib_phone_scanner.hms_util
 
+import android.content.Intent
 import com.blankj.utilcode.util.ActivityUtils
 import com.huawei.hms.hmsscankit.ScanUtil
 import com.huawei.hms.ml.scan.HmsScan
@@ -15,7 +16,19 @@ object HmsPhoneScanUtil {
             ActivityUtils.getTopActivity(),
             requestCode,
             HmsScanAnalyzerOptions.Creator()
-                .setHmsScanTypes(HmsScan.ALL_SCAN_TYPE).create()
+                .setHmsScanTypes(HmsScan.ALL_SCAN_TYPE)
+                .create()
         )
+    }
+
+    fun getScanResultOfHms(data: Intent?): String? {
+        try {
+            val hmsResult = data?.getParcelableExtra<HmsScan>(ScanUtil.RESULT)
+            return hmsResult?.originalValue
+        } catch (_: Throwable) {
+        }
+
+        return null
+
     }
 }

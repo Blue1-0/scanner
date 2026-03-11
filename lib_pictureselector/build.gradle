@@ -14,7 +14,9 @@ android {
         targetSdk app_versions.targetSdk
         versionCode app_versions.versionCode
         versionName app_versions.versionName
-
+        ndk {
+            abiFilters 'arm64-v8a'//, 'armeabi-v7a','x86'//模拟器
+        }
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -48,24 +50,37 @@ afterEvaluate {
 }
 dependencies {
 
-    implementation libs.appCompatLib
-    implementation libs.materialLib
-    implementation libs.utilcodexLib
+    implementation(libs.appCompatLib)
+    implementation(libs.materialLib)
+
+//    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    // Skip this if you don't want to use integration libraries or configure Glide.
+//    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+//    implementation 'com.blankj:utilcodex:1.31.1'
+
+    // PictureSelector 基础 (必须)
+//    implementation 'io.github.lucksiege:pictureselector:v3.11.2'
+//    // 图片压缩 (按需引入)
+//    implementation 'io.github.lucksiege:compress:v3.11.2'
+//    // 图片裁剪 (按需引入)
+//    implementation 'io.github.lucksiege:ucrop:v3.11.2'
+//    // 自定义相机 (按需引入)
+//    implementation 'io.github.lucksiege:camerax:v3.11.2'
+
+    implementation(libs.ShapeViewLib)
+    implementation(libs.ShapeDrawableLib)
+
+    implementation(libs.utilcodexLib)
+    implementation(libs.glideLib)
+    implementation(libs.glideTransLib)
+    annotationProcessor(libs.glidecompilerLib)
+
+    implementation(libs.lucksiegePictureselector)
+    implementation(libs.lucksiegeCompress)
+    implementation(libs.lucksiegeUcrop)
+    implementation(libs.lucksiegeCamerax)
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-
-    implementation 'com.github.bumptech.glide:glide:4.11.0'
-    // Skip this if you don't want to use integration libraries or configure Glide.
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
-    implementation 'com.blankj:utilcodex:1.31.1'
-
-    // PictureSelector 基础 (必须)
-    implementation 'io.github.lucksiege:pictureselector:v3.11.2'
-    // 图片压缩 (按需引入)
-    implementation 'io.github.lucksiege:compress:v3.11.2'
-    // 图片裁剪 (按需引入)
-    implementation 'io.github.lucksiege:ucrop:v3.11.2'
-    // 自定义相机 (按需引入)
-    implementation 'io.github.lucksiege:camerax:v3.11.2'
 }

@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
     id 'maven-publish'
 }
 apply from: "${rootProject.projectDir}/config.gradle"
@@ -10,7 +11,9 @@ android {
 
     defaultConfig {
         minSdk 24
-
+        ndk {
+            abiFilters 'arm64-v8a'//, 'armeabi-v7a','x86'//模拟器
+        }
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -63,26 +66,20 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
-    implementation libs.BaseRecyclerAdapter
+//    implementation libs.BaseRecyclerAdapter
+
     implementation project(path: ':lib_pictureselector')
+    implementation(libs.BRVLib)
+    implementation(libs.coilLib)
+    implementation(libs.coilComposeLib)
+    implementation(libs.utilcodexLib)
 
-    implementation libs.coilLib
-    implementation libs.coilComposeLib
-    implementation libs.ShapeViewLib
-    implementation libs.ShapeDrawableLib
+    implementation(libs.hmsscanplus)
+    implementation(libs.mlkitCommon)
+    implementation(libs.mlkitBarcodeScanning)
+    implementation(libs.mlkitTextRecognition)
+    implementation(libs.zxingLite)
 
-    //android utilcode
-    implementation 'com.blankj:utilcodex:1.31.1'
-    //hms
-    api 'com.huawei.hms:scanplus:2.10.0.301'
-    //公共库 (*必须)
-    implementation 'com.github.jenly1314.MLKit:mlkit-common:2.3.0'
-    //条码识别 (可选)
-    implementation 'com.github.jenly1314.MLKit:mlkit-barcode-scanning:2.3.0'
-    //text recognition
-    implementation 'com.github.jenly1314.MLKit:mlkit-text-recognition:2.3.0'
-    //zxing-lite
-    implementation 'com.github.jenly1314:zxing-lite:3.3.0'
 
 
 

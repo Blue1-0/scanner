@@ -24,39 +24,36 @@ fun imagePicker(max: Int = 6, pictureResult: (List<String>?) -> Unit) {
     if (imageSelectionDialog == null) {
         imageSelectionDialog =
             ImageSelectionDialog(
-                topActivity,
-                mutableListOf("相机", "相册")
+                mContext = topActivity,
+                list = listOf("相机", "相册"),
+                cancelOnClick = { dismissPictureDialog() },
+                onItemClick = { position ->
+                    if (position == 0) {
+//            MyPictureSelector.openCameraCustomV2(topActivity,MyPictureSelector.REQUEST_CODE)
+                        MyPictureSelector.openCameraV2(topActivity) { result, cancel ->
+                            if (cancel) {
+                                dismissPictureDialog()
+                                return@openCameraV2
+                            }
+                            pictureResult(result)
+                        }
+                    } else {
+                        MyPictureSelector.selectPicture(topActivity, max) { result, cancel ->
+                            if (cancel) {
+                                dismissPictureDialog()
+                                return@selectPicture
+                            }
+                            pictureResult(result)
+                        }
+                    }
+                    dismissPictureDialog()
+                }
             ).apply {
                 this.requestWindowFeature(Window.FEATURE_NO_TITLE)
                 this.setCancelable(false)
                 this.setCanceledOnTouchOutside(false)
             }
 
-    }
-
-    imageSelectionDialog?.setCancelOnClick { dismissPictureDialog() }
-    imageSelectionDialog?.setOnItemClickListener { _, _, position ->
-
-        if (position == 0) {
-
-//            MyPictureSelector.openCameraCustomV2(topActivity,MyPictureSelector.REQUEST_CODE)
-            MyPictureSelector.openCameraV2(topActivity) { result, cancel ->
-                if (cancel) {
-                    dismissPictureDialog()
-                    return@openCameraV2
-                }
-                pictureResult(result)
-            }
-        } else {
-            MyPictureSelector.selectPicture(topActivity, max) { result, cancel ->
-                if (cancel) {
-                    dismissPictureDialog()
-                    return@selectPicture
-                }
-                pictureResult(result)
-            }
-        }
-        dismissPictureDialog()
     }
     if (true != imageSelectionDialog?.isShowing) {
         imageSelectionDialog?.show()

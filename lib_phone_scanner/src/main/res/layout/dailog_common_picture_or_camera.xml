@@ -9,8 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:shape_radiusInTopStart="5dp"
         app:shape_radiusInTopEnd="5dp"
+        app:shape_radiusInTopStart="5dp"
         app:shape_solidColor="@color/white">
 
         <TextView
@@ -23,12 +23,14 @@
             android:text="请选择"
             android:textColor="#000"
             android:textSize="@dimen/sp17" />
-
+        <!--"-->
         <ImageView
             android:id="@+id/ivCancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_alignParentRight="true"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="15dp"
             android:padding="@dimen/dp15"
             android:scaleType="center"
             android:src="@mipmap/icon_cancel" />
