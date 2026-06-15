@@ -62,6 +62,7 @@ object ScannerManager : IScannerManager {
     fun initScanner(): ScannerType? {
         val brand = Build.BRAND
         val product = Build.PRODUCT
+        val model = Build.MODEL
         Log.d("scannerManager", "brand: $brand\tproduct: $product")
         for (scannerType in ScannerType.entries) {
             if (ObjectUtils.isNotEmpty(product)) {
@@ -77,6 +78,15 @@ object ScannerManager : IScannerManager {
             ) {
                 return scannerType
             }
+
+            //新增 model判断 某些设备获取不到 brand或者 product
+            if (ObjectUtils.isNotEmpty(model)
+                && ObjectUtils.isNotEmpty(scannerType.brand)
+                && model.equals(scannerType.brand, ignoreCase = true)
+            ) {
+                return scannerType
+            }
+
         }
         return null
     }
