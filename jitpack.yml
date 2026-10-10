@@ -1,13 +1,15 @@
 # JitPack构建配置文件
 #jdk:
 #  - openjdk11
+jdk:
+  - openjdk17
 
-before_install:
-  # 1. 解决 Git 安全目录问题
-  - git config --global --add safe.directory /build
-  # 2. 安装并切换到你项目实际使用的 Java 11 小版本
-  - sdk install java 11.0.1-open
-  - sdk use java 11.0.1-open
+#before_install:
+#  # 1. 解决 Git 安全目录问题
+#  - git config --global --add safe.directory /build
+#  # 2. 安装并切换到你项目实际使用的 Java 11 小版本
+#  - sdk install java 11.0.1-open
+#  - sdk use java 11.0.1-open
 
 ## 发布任务
 publish:
