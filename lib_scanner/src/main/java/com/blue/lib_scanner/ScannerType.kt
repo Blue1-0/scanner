@@ -11,7 +11,7 @@ enum class ScannerType(
 //    val code: Int
 ) : Parcelable {
     SUNMI(arrayOf("L2s_PRO"), "SUNMI"),
-    UROVO(arrayOf("DT50_5G_EEA", "i6310", "i6200", "DT50", "i6200S", "i6300A"), "UROVO",),
+    UROVO(arrayOf("DT50_5G_EEA", "i6310", "i6200", "DT50", "i6200S", "i6300A","i8310T","CT58C","K388Pro"), "UROVO",),
     SEUIC(arrayOf("full_bird_k62v1_64_bsp"), "SEUIC"),
     ZEBRA(arrayOf("TC21", "TC70", "TC72", "TC70X"), "Zebra"),
 
