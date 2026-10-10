@@ -1,6 +1,6 @@
 # JitPack构建配置文件
-jdk:
-  - openjdk11
+#jdk:
+#  - openjdk11
 
 before_install:
   # 1. 解决 Git 安全目录问题
